@@ -8,7 +8,7 @@ wdFormatPDF = 17
 wdFormatHTML = 8
 
 # %%
-def conv_rft2pdf(input_dir, output_dir):
+def conv_rtf2pdf(input_dir, output_dir):
 
     for subdir, dirs, files in tqdm(os.walk(input_dir), desc="Walking through .RTF files", colour='blue'):
         for file in tqdm(iterable=files, desc="Converting .RTF files", colour='green'):
@@ -32,24 +32,9 @@ def conv_rft2pdf(input_dir, output_dir):
             doc.Close()
             word.Quit()
 
-
-        # for subdir, dirs, files in os.walk(input_dir):
-        #     for file in files:
-        #         in_file = os.path.join(subdir, file)
-        #         # output_file = file.split('.')[0]
-        #         output_file = os.path.splitext(file)[0]
-                
-        #         out_file = output_dir+output_file+'.pdf'
-        #         word = comtypes.client.CreateObject('Word.Application')
-
-        #         doc = word.Documents.Open(in_file)
-        #         doc.SaveAs(out_file, FileFormat=wdFormatPDF)
-        #         doc.Close()
-        #         word.Quit()
-
 # %%
 if __name__ == "__main__":
     input_dir = os.getcwd() + "\\test_in"
     output_dir = os.getcwd() + "\\test_out\\"
 
-    conv_rft2pdf(input_dir, output_dir)
+    conv_rtf2pdf(input_dir, output_dir)
